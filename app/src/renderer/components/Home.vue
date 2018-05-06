@@ -6,7 +6,7 @@
         <v-list class="paisescontainer">
           <v-list-tile v-for="pais in this.paisesParticipantes" v-bind:key="pais.name | capitalize" @click="updateActiveCountry(pais)">
             <v-list-tile-content>
-              <v-list-tile-title :class="{active: pais === activeCountry, presente: pais.isPresent, ausente: !pais.isPresent }" v-text="pais.name"></v-list-tile-title>
+              <v-list-tile-title :class="{active: pais === activeCountry, presente: pais.isPresent, ausente: !pais.isPresent }">{{pais.name}} {{pais.observer ? '(Observador)' : '' }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -30,7 +30,7 @@
                 </v-flex>
               </v-card-title>
               <v-card-text>
-                Total {{ this.paisesPresentes.length }} de {{ this.paisesParticipantes.length }} <br>
+                Total {{ this.paisesPresentes.length }} de {{ this.paisesParticipantes.length }} <span v-if="Observers.length"> ({{Observers.length}} Observadoras) </span> <br>
                   <div>Mayoría Calificada {{ this.mayoriaCalificada }} </div>
                   <div>Mayoría Absoluta {{ this.mayoriaAbsoluta }} </div>
               </v-card-text>
@@ -78,6 +78,7 @@ export default {
     ...mapGetters([
       'paisesParticipantes',
       'paisesPresentes',
+      'Observers',
       'activeCountries',
       'activeCountry',
       'organoName',

@@ -3,9 +3,8 @@
     <v-flex>
       <div class="lista"> 
         <h2>Activa y desactiva países</h2>
-        <span @click="setAllFalse()"> All false</span>
-        <v-btn success @click="changePresent('presente')">Todos participan</v-btn>
-        <v-btn error @click="changePresent('ausente')">Ninguno participa</v-btn>
+        <v-btn success @click="setAllTrue()">Todos participan</v-btn>
+        <v-btn error @click="setAllFalse()">Ninguno participa</v-btn>
           <div v-for="pais in this.allCountries" :key="pais.name">
             <v-checkbox :label="pais.name" v-model="pais.participa"></v-checkbox>
           </div>
@@ -21,8 +20,8 @@
 <style scoped>
 
 .lista {
-  height:90vh;
-  overflow:scroll
+  height:85vh;
+  overflow:auto;  
 }
 </style>
 
@@ -37,7 +36,10 @@ export default {
   },
   methods: {
     setAllFalse() {
-      this.allCountries.map(pais => pais.participa = false)
+      this.allCountries.forEach(pais => pais.participa = false)
+    },
+    setAllTrue() {
+      this.allCountries.forEach(pais => pais.participa = true)
     } 
   }
 }

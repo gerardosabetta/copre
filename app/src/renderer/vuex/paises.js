@@ -191,16 +191,16 @@ let paises = [
   { name: 'Yemen', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: false },
   { name: 'Zambia', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: false },
   { name: 'Zimbabwe', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: false },
-  { name: 'ZZ Banco Mundial', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Comité Internacional de la Cruz Roja', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Comunidad del Caribe', participa: true, isPresent: true, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Fondo Monetario Internacional', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Liga Árabe', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Organización para la Unidad Africana', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Palestina', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Santa Sede', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Secretaría del Commonwealth', participa: true, isPresent: true, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
-  { name: 'ZZ Unión Europea', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true }
+  { name: 'Banco Mundial', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Comité Internacional de la Cruz Roja', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Comunidad del Caribe', participa: true, isPresent: true, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Fondo Monetario Internacional', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Liga Árabe', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Organización para la Unidad Africana', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Palestina', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Santa Sede', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Secretaría del Commonwealth', participa: true, isPresent: true, questions: 0, answers: 0, motions: 0, speech: 0, observer: true },
+  { name: 'Unión Europea', participa: true, isPresent: false, questions: 0, answers: 0, motions: 0, speech: 0, observer: true }
 ]
 
 export default paises
