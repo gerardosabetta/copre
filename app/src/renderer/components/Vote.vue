@@ -48,10 +48,14 @@
         </v-layout>
         <v-layout row wrap>
             <v-flex>
-                
                 <span class="number">{{this.total}} de {{this.$store.getters.paisesPresentes.length}}</span> delegaciones han votado.
                 <div class="mayoria">Mayoría Calificada {{this.$store.getters.mayoriaCalificada}} / Mayoría Absoluta {{this.$store.getters.mayoriaAbsoluta}}</div>
-                <div class="reset" @click="reset()">Reset</div>
+                <v-flex offset-xs10>
+                <v-btn 
+                small error @click="reset()"> 
+                    reset
+                </v-btn>
+                </v-flex>
             </v-flex>
         </v-layout>
     </div>
