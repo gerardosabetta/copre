@@ -10,11 +10,19 @@ import App from './App'
 import routes from './routes'
 import store from './vuex/store'
 import Vue2Filters from 'vue2-filters'
+import wysiwyg from "vue-wysiwyg";
 Vue.use(Vuetify)
 Vue.use(Electron)
 Vue.use(Resource)
 Vue.use(Router)
 Vue.use(Vue2Filters)
+Vue.use(wysiwyg, {
+  maxHeight: "500px",
+  forcePlainTextOnPaste: true,
+  hideModules: {
+    'image': false
+  }
+})
 Vue.config.debug = true
 
 const router = new Router({

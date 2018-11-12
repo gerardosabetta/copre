@@ -89,6 +89,7 @@ export default {
 
 <style lang="scss">
 @import url(https://fonts.googleapis.com/css?family=Lato:300);
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
 
 * {
   margin: 0;

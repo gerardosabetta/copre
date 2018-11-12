@@ -11,7 +11,6 @@ let getters = {
   organoName: state => state.organoName,
   topicName: state => state.topicName,
   activeNote: state => state.activeNote,
-  activeNoteText: state => state.activeNote.text,
   mayoriaCalificada: (state, getters) => Math.round(getters.nonObservers.length * 0.666667),
   mayoriaAbsoluta: (state, getters) => Math.round((getters.nonObservers.length / 2)) + 1,
   questions: state => state.questions,

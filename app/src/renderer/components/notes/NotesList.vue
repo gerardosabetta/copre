@@ -14,24 +14,24 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  data() {
+  props: ['notes'],
+  data () {
     return {
       title: 'Notas'
     }
   },
   computed: {
     ...mapGetters([
-      'notes',
       'activeNote'
     ])
   },
   methods: {
-    updateActiveNote(note) {
+    updateActiveNote (note) {
       this.$store.dispatch('updateActive', note)
     }
   },
   filters: {
-    short(value) {
+    short (value) {
       if (value.length == 0) {
         return "Nota vacia"
       } else if (value.length < 15) {
@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .active {
-  font-weight:bold;
+  font-weight: bold;
 }
 
 #notes-list {
@@ -56,14 +56,12 @@ export default {
   overflow: auto;
 }
 
-
-
 .list-group-item-heading {
   font-weight: 300;
   font-size: 20px;
   padding: 4px;
   text-align: center;
   min-height: 21pt;
-  border-bottom: 1px solid lightgray
+  border-bottom: 1px solid lightgray;
 }
 </style>
