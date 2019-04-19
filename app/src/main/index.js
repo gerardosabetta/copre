@@ -1,7 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow, Notification } from 'electron'
-
+import { Sequelize } from 'sequelize'
 let mainWindow
 const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:${require('../../../config').port}`
@@ -45,3 +45,61 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+const connection = new Sequelize('testing', 'gera', 'gera', {
+  host: 'localhost',
+  dialect: 'sqlite',
+  storage: 'db.sqlite',
+  operatorsAliases: false
+})
+
+
+const Country = connection.define('Country', {
+  name: Sequelize.STRING,
+  isParticipating: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  isPresent: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  isObserver: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  questions: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  answers: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  motions: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  speeches: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+})
+
+
+connection
+  .sync({
+      logging: console.log,
+      force: true
+  })
+  .then(() => {
+      Country.create({
+        name: 'Argentina',
+      })
+  })
+  .then(() => {
+      console.log('Connection correct')
+  })
+  .catch(err => {
+      console.log(`Error: ${err}`)
+  })
