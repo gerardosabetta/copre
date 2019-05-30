@@ -14,7 +14,6 @@
         v-model="fab"
       >
         <v-icon>note_add</v-icon>
-        <v-icon>note_add</v-icon>
       </v-btn>
       <v-btn
         fab
@@ -30,6 +29,7 @@
         dark
         small
         class="red"
+        v-if="notes.length"
         @click="deleteNote" 
       >
         <v-icon>delete</v-icon>
@@ -39,9 +39,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
-  components: {
+  computed: {
+    ...mapGetters([
+      'notes'
+    ])
   },
   methods: {
     addNote(state) {

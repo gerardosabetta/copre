@@ -5,7 +5,7 @@
     </v-flex>
     <v-flex xs6>
       <div class="editor-container">
-        <editor v-if="notes.length"></editor>
+        <editor v-if="activeNote"></editor>
       </div>
     </v-flex>
     <v-flex xs1>
@@ -23,7 +23,8 @@ import { mapGetters } from 'vuex'
   export default {
     computed: {
       ...mapGetters([
-        'notes'
+        'notes',
+        'activeNote'
       ])
     },
     components: {

@@ -2,35 +2,35 @@
   <v-app id="#app" toolbar>
     <header>
       <v-system-bar class="amber darken-4 system-bar"  window dark>
-      <v-spacer></v-spacer>
-      <v-icon @click="minimizeWindow()" class="option" >remove</v-icon>
-      <v-icon @click="maximizeWindow()" class="option" >check_box_outline_blank</v-icon>
-      <v-icon @click="closeWindow()" class="option" >close</v-icon>
-    </v-system-bar>
-      <v-toolbar class="amber darken-4 toolbar" dark>
+        <v-spacer></v-spacer>
+        <v-icon @click="minimizeWindow()" class="option" >remove</v-icon>
+        <v-icon @click="maximizeWindow()" class="option" >check_box_outline_blank</v-icon>
+        <v-icon @click="closeWindow()" class="option" >close</v-icon>
+      </v-system-bar>
+      <v-navigation-drawer app
+      v-model="drawer"
+      light
+      temporary
+      enable-resize-watcher
+      >
+        <v-list dense class="options-list">
+          <v-list-tile router :to="item.to" :key="i" v-for="(item, i) in items" exact>
+            <v-list-tile-action>
+              <v-icon v-html="item.icon"></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title v-text="item.title"></v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-navigation-drawer>
+      <v-toolbar class="amber darken-4 toolbar" app dark>
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title>Copre Alpha OAJNU Rosario</v-toolbar-title>
         <v-spacer></v-spacer>
         <MocionButton />
       </v-toolbar>
     </header>
-    <v-navigation-drawer 
-      v-model="drawer"
-      light
-      temporary
-      enable-resize-watcher
-      >
-      <v-list dense class="options-list">
-        <v-list-tile router :to="item.to" :key="i" v-for="(item, i) in items" exact>
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
     <main class="router-view-container">
       <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
@@ -93,6 +93,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 html,
@@ -101,9 +102,6 @@ body {
   overflow: auto;
 }
 
- ::selection {
-  background: transparent;
-}
 
 .toolbar {
   top: 32px;

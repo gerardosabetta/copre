@@ -1,40 +1,30 @@
 <template>
   <div id="note-editor">
-    <textarea
-      :value="this.$store.getters.activeNoteText"
-      @input="editNote"
-      class="form-control"
-      placeholder="Escribí acá tu nota">
-    </textarea>
+      <v-text-field
+        v-model="activeNote.title"
+        label="Título"
+      ></v-text-field>
+    <wysiwyg v-model="activeNote.text" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
   export default {
-    methods: {
-      editNote(note) {
-        console.log(note)
-        this.$store.dispatch('editNote',note.target.value)
-      }
+    computed: {
+      ...mapGetters([
+        'activeNote'
+      ])
     }
   }
 </script>
 
 <style scoped>
-  #note-editor {
-    float:left;
-    width:100%;
-  }
+@import "~vue-wysiwyg/dist/vueWysiwyg.css";
 
-  #note-editor textarea {
-    width:100%;
-    resize:none;
-    height:600px;
-    font-size:24pt;
-  }
-  
   ::selection {
     background:red;
   }
+
 </style>

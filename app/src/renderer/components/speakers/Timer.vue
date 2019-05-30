@@ -3,13 +3,13 @@
         <time>
             {{this.minutes | twoDigits}}:{{this.seconds | twoDigits}}
         </time>
-        <v-btn success @click="start()">
+        <v-btn color="success" @click="start()">
             <v-icon>play_arrow</v-icon>
         </v-btn>
-        <v-btn info @click="stop()">
+        <v-btn color="info" @click="stop()">
             <v-icon>pause</v-icon>
         </v-btn>
-        <v-btn error @click="reset()">
+        <v-btn color="error" @click="reset()">
             <v-icon>stop</v-icon>
         </v-btn>
     </div>

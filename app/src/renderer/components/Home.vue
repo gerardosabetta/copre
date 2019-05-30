@@ -57,8 +57,8 @@
           </h1>
         </v-flex>
         <v-flex xs12>
-          <v-btn success @click="changePresent('presente')">Presente</v-btn>
-          <v-btn error @click="changePresent('ausente')">Ausente</v-btn>
+          <v-btn color="success" @click="changePresent('presente')">Presente</v-btn>
+          <v-btn color="error" @click="changePresent('ausente')">Ausente</v-btn>
         </v-flex>
       </v-layout>
     </v-flex>

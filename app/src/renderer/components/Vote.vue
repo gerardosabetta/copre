@@ -7,26 +7,26 @@
                 <div class="contador">{{this.agree}}</div> 
                 <div>
                     <v-btn 
-                    small error @click="decAgree()">
+                    small color="error" @click="decAgree()">
                         <v-icon>remove</v-icon>
                     </v-btn>
                     <v-btn 
-                    small success @click="incAgree()"> 
+                    small color="success" @click="incAgree()"> 
                         <v-icon>add</v-icon>
                     </v-btn>
                 </div>
             </v-flex>
-            
+
             <v-flex v-if="formal">
                 <h2>Abstención</h2>
                 <div class="contador">{{this.abstence}}</div>
                 <div>
                     <v-btn 
-                    small error @click="decAbstence()">
+                    small color="error" @click="decAbstence()">
                         <v-icon>remove</v-icon>
                     </v-btn>
                     <v-btn 
-                    small success @click="incAbstence()"> 
+                    small color="success" @click="incAbstence()"> 
                         <v-icon>add</v-icon>
                     </v-btn>
                 </div>
@@ -36,11 +36,11 @@
                 <div class="contador">{{this.decline}}</div>
                 <div>
                     <v-btn 
-                    small error @click="decDecline()">
+                    small color="error" @click="decDecline()">
                         <v-icon>remove</v-icon>
                     </v-btn>
                     <v-btn 
-                    small success @click="incDecline()"> 
+                    small color="success" @click="incDecline()"> 
                         <v-icon>add</v-icon>
                     </v-btn>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="mayoria">Mayoría Calificada {{this.$store.getters.mayoriaCalificada}} / Mayoría Absoluta {{this.$store.getters.mayoriaAbsoluta}}</div>
                 <v-flex offset-xs10>
                 <v-btn 
-                small error @click="reset()"> 
+                small color="error" @click="reset()"> 
                     reset
                 </v-btn>
                 </v-flex>

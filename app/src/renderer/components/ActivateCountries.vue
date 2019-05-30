@@ -3,8 +3,8 @@
     <v-flex>
       <div class="lista"> 
         <h2>Activa y desactiva países</h2>
-        <v-btn success @click="setAllTrue()">Todos participan</v-btn>
-        <v-btn error @click="setAllFalse()">Ninguno participa</v-btn>
+        <v-btn color="success" @click="setAllTrue()">Todos participan</v-btn>
+        <v-btn color="error" @click="setAllFalse()">Ninguno participa</v-btn>
           <div v-for="pais in this.allCountries" :key="pais.name">
             <v-checkbox :label="pais.name" v-model="pais.participa"></v-checkbox>
           </div>
