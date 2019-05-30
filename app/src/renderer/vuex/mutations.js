@@ -47,7 +47,7 @@ let mutations = {
   //Notes
   ADD_NOTE(state) {
     const newNote = {
-      text: 'Nueva nota',
+      text: '',
       title: 'Sin título',
       uuid: uuidv4(),
       favorite: false
