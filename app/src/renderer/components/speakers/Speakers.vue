@@ -15,7 +15,7 @@
                             Añadir delegaciones a la lista de oradores
                         </div>
                     </v-card-title>
-                    <v-card-text style="height:300px">
+                    <v-card-text>
                         <add-speaker></add-speaker>
                     </v-card-text>
                     <v-card-actions class="white">
@@ -30,7 +30,7 @@
             <v-dialog
             v-model="removeSpeakerDialog"
             absolute>
-                <v-btn error slot="activator">
+                <v-btn error slot="activator" v-if="speakingCountry.name">
                     <v-icon>remove</v-icon>
                 </v-btn>
                 <v-card>
@@ -125,6 +125,7 @@
             <v-btn 
                 error
                 @click="finalizedSpeech(speakingCountry)"
+                v-if="speakingCountry.name"
                 >
                     Discurso finalizado
                 </v-btn>
