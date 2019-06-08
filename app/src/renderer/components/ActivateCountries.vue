@@ -1,11 +1,17 @@
 <template>
   <v-layout row wrap>
     <v-flex>
-      <div class="lista"> 
+      <div class="lista">
         <h2>Activa y desactiva países</h2>
+        <v-text-field
+          v-model="searchTerm"
+          label="Buscar un país"
+          prepend-icon="search"
+          width="30%"
+        ></v-text-field>
         <v-btn color="success" @click="setAllTrue()">Todos participan</v-btn>
         <v-btn color="error" @click="setAllFalse()">Ninguno participa</v-btn>
-          <div v-for="pais in this.allCountries" :key="pais.name">
+          <div v-for="pais in this.filteredCountries" :key="pais.name">
             <v-checkbox :label="pais.name" v-model="pais.participa"></v-checkbox>
           </div>
       </div>
@@ -21,7 +27,7 @@
 
 .lista {
   height:85vh;
-  overflow:auto;  
+  overflow:auto;
 }
 </style>
 
@@ -29,10 +35,20 @@
 import { mapGetters } from 'vuex'
 import store from '../vuex/store.js'
 export default {
+  data: () => {
+    return {
+      searchTerm: ''
+    }
+  },
   computed: {
     ...mapGetters([
       'allCountries'
-    ])
+    ]),
+      filteredCountries() {
+      return this.allCountries.filter(country => {
+          return country.name.toLowerCase().match(this.searchTerm.toLowerCase())
+      })
+    }
   },
   methods: {
     setAllFalse() {
@@ -40,7 +56,7 @@ export default {
     },
     setAllTrue() {
       this.allCountries.forEach(pais => pais.participa = true)
-    } 
+    }
   }
 }
 </script>
