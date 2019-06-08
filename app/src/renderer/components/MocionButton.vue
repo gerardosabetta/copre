@@ -1,6 +1,7 @@
 <template>
     <v-dialog v-model="mocionDialog" width="500px">
-        <v-btn icon dark slot="activator">
+        <v-btn flat slot="activator">
+            <span>MOCIONES</span>
             <v-icon>priority_high</v-icon>
         </v-btn>
         <v-card>
@@ -15,7 +16,7 @@
                 </v-layout>
                 <div class="fixed-height">
                     <v-list>
-                        <v-list-tile v-for="pais in this.filteredSpeakers" v-bind:key="pais.name | capitalize" @click.native="dialog = true">
+                        <v-list-tile v-for="pais in this.filteredCountries" v-bind:key="pais.name | capitalize" @click.native="dialog = true">
                             <v-list-tile-content>
                                 <v-list-tile-title>
                                     {{pais.name}} - {{pais.motions}}
@@ -56,7 +57,7 @@ export default {
         ...mapGetters([
             'paisesPresentes'
         ]),
-        filteredSpeakers() {
+        filteredCountries() {
             return this.paisesPresentes.filter(country => {
                 return country.name.toLowerCase().match(this.searchTerm.toLowerCase())
             })
