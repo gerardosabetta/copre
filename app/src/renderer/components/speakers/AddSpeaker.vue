@@ -10,7 +10,7 @@
                 ></v-text-field>
             </v-flex>
         </v-layout>
-        <v-list>
+        <v-list class="speakers-container">
             <v-list-tile v-for="pais in this.filteredSpeakers" v-bind:key="pais.name | capitalize" @click="addSpeaker(pais)" @click.native="dialog = true">
                 <v-list-tile-content>
                     <v-list-tile-title v-text="pais.name"></v-list-tile-title>
@@ -53,5 +53,8 @@ export default {
 </script>
 
 <style>
-
+.speakers-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
 </style>
