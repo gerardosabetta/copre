@@ -10,7 +10,7 @@
             <v-icon>pause</v-icon>
         </v-btn>
         <v-btn color="error" @click="reset()">
-            <v-icon>stop</v-icon>
+            <v-icon>refresh</v-icon>
         </v-btn>
     </div>
 </template>
