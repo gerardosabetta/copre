@@ -57,8 +57,18 @@
           </h1>
         </v-flex>
         <v-flex xs12>
-          <v-btn color="success" @click="changePresent('presente')">Presente</v-btn>
-          <v-btn color="error" @click="changePresent('ausente')">Ausente</v-btn>
+          <v-btn
+            color="success"
+            v-shortkey="['ctrl', 'j']"
+            @shortkey="changePresent('presente')"
+            @click="changePresent('presente')
+            ">Presente</v-btn>
+          <v-btn
+            color="error"
+            v-shortkey="['ctrl', 'k']"
+            @shortkey="changePresent('ausente')"
+            @click="changePresent('ausente')
+            ">Ausente</v-btn>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -134,7 +144,7 @@ export default {
     max-height: 75vh;
     overflow-y: auto;
   }
-  
+
   .active-country {
     height: 40vh;
     display: flex;
