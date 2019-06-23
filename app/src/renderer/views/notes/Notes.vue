@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import Toolbar from './notes/Toolbar'
-import NotesList from './notes/NotesList'
-import Editor from './notes/Editor'
+import Toolbar from './Toolbar'
+import NotesList from './NotesList'
+import Editor from './Editor'
 import { mapGetters } from 'vuex'
 
   export default {

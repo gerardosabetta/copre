@@ -1,28 +1,35 @@
+import Home from './views/Home'
+import Vote from './views/Vote'
+import Admin from './views/Admin'
+import Speakers from './views/speakers/Speakers'
+import Notes from './views/notes/Notes'
+import Resumen from './views/Resumen'
+
 export default [
   {
     path: '/',
     name: 'home',
-    component: require('components/Home')
+    component: Home
   },
   {
     path: '/oradores',
-    component: require('components/speakers/Speakers')
+    component: Speakers
   },
   {
     path: '/notes',
-    component: require('components/Notes')
+    component: Notes
   },
   {
     path: '/vote',
-    component: require('components/Vote')
+    component: Vote
   },
   {
     path: '/admin',
-    component: require('components/Admin')
+    component: Admin
   },
   {
     path: '/resumen',
-    component: require('components/Resumen')
+    component: Resumen
   },
   {
     path: '*',
