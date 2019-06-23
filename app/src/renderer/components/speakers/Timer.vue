@@ -3,10 +3,10 @@
         <time>
             {{this.minutes | twoDigits}}:{{this.seconds | twoDigits}}
         </time>
-        <v-btn color="success" @click="start()">
+        <v-btn v-if="!running" color="success" @click="start()">
             <v-icon>play_arrow</v-icon>
         </v-btn>
-        <v-btn color="info" @click="stop()">
+        <v-btn v-else color="info" @click="stop()">
             <v-icon>pause</v-icon>
         </v-btn>
         <v-btn color="error" @click="reset()">
@@ -72,13 +72,4 @@ export default {
 
 <style scoped>
 
-.timer-container {
-    font-size:48pt;
-    display:block;
-    margin:10px auto;
-    text-align:center;
-}
-time {
-    display:block;
-}
 </style>

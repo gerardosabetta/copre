@@ -30,7 +30,7 @@
             <v-dialog
             v-model="removeSpeakerDialog"
             absolute>
-                <v-btn error slot="activator" v-if="speakingCountry.name">
+                <v-btn error slot="activator" v-if="speakingCountry">
                     <v-icon>remove</v-icon>
                 </v-btn>
                 <v-card>
