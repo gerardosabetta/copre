@@ -102,8 +102,8 @@ export default {
 
 @media print {
   body {
-    overflow: visible;
-    height: unset;
+    overflow: visible !important;
+    height: unset !important;
   }
   header {
     display: none

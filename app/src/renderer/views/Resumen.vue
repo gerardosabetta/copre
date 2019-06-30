@@ -53,12 +53,6 @@
 
 <style lang="scss" scoped>
 @media print {
-  .resumen-container {
-    position: relative;
-    display: block;
-    height: unset;
-    overflow: visible;
-  }
   .print-button {
     display: none;
   }
@@ -66,6 +60,12 @@
 .resumen-container {
   height: 80vh;
   overflow-y: scroll;
+  @media print {
+    position: relative;
+    display: block;
+    height: unset;
+    overflow: visible;
+  }
 }
 
 </style>
