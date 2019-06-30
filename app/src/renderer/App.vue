@@ -41,6 +41,7 @@
         </v-layout>
       </v-container>
     </main>
+    <span hidden v-shortkey="['ctrl', 'alt', '0']" @shortkey="navigateToAdmin()"></span>
   </v-app>
 </template>
 
@@ -60,8 +61,7 @@ export default {
         { title: 'Lista de oradores', to: 'oradores' },
         { title: 'Votacion', to: 'vote' },
         { title: 'Notas', to: 'notes' },
-        { title: 'Resumen', to: 'resumen' },
-        { title: 'Administrar', to: 'admin' }
+        { title: 'Resumen', to: 'resumen' }
       ]
     }
   },
@@ -77,6 +77,9 @@ export default {
     maximizeWindow () {
       let window = remote.getCurrentWindow()
       window.isMaximized() ? window.unmaximize() : window.maximize();
+    },
+    navigateToAdmin () {
+      this.$router.push('admin')
     }
   },
   store,
@@ -129,7 +132,7 @@ body {
 .system-bar {
   -webkit-app-region: drag;
   .option {
-    -webkit-app-region: no-drag;    
+    -webkit-app-region: no-drag;
     cursor: pointer;
     color: #fff !important;
     font-weight: 400;
