@@ -78,7 +78,6 @@
             </div>
         </v-flex>
         <v-flex xs4 class="full-height">
-            <Timer />
             <h4 v-text="speakingCountry.name"></h4>
             <h6 v-if="getCurrentSpeakerQuestions.length > 0">{{speakingCountry.name}} fue interpelado por:</h6>
                 <v-list class="list-container">
@@ -208,6 +207,7 @@ export default {
         finalizedSpeech(speakingCountry) {
             this.$store.dispatch('finalizedSpeech')
             this.$store.dispatch('modifySpeech', {country:speakingCountry, speech: true})
+            this.$root.$emit('finalizedSpeech')
         }
     },
     components: {

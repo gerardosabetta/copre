@@ -28,6 +28,7 @@
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title>Copre Alpha OAJNU Rosario</v-toolbar-title>
         <v-spacer></v-spacer>
+        <Timer />
         <MocionButton />
       </v-toolbar>
     </header>
@@ -35,9 +36,7 @@
       <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
           <v-flex xs12>
-            <keep-alive>
-              <router-view></router-view>
-            </keep-alive>
+            <router-view></router-view>
           </v-flex>
         </v-layout>
       </v-container>
@@ -47,8 +46,9 @@
 
 <script>
 import store from 'renderer/vuex/store'
-import Speakers from './components/speakers/Speakers'
+import Speakers from './views/speakers/Speakers'
 import MocionButton from './components/MocionButton'
+import Timer from './components/Timer'
 const { remote } = require('electron')
 
 export default {
@@ -81,7 +81,8 @@ export default {
   },
   store,
   components: {
-    MocionButton
+    MocionButton,
+    Timer
   }
 
 }

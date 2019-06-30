@@ -3,14 +3,28 @@
         <time>
             {{this.minutes | twoDigits}}:{{this.seconds | twoDigits}}
         </time>
-        <v-btn v-if="!running" color="success" @click="start()">
-            <v-icon>play_arrow</v-icon>
+        <v-btn
+          v-if="!running"
+          flat
+          icon
+          @click="start()"
+        >
+          <v-icon>play_arrow</v-icon>
         </v-btn>
-        <v-btn v-else color="info" @click="stop()">
-            <v-icon>pause</v-icon>
+        <v-btn
+          v-else
+          flat
+          icon
+          @click="stop()"
+        >
+          <v-icon>pause</v-icon>
         </v-btn>
-        <v-btn color="error" @click="reset()">
-            <v-icon>refresh</v-icon>
+        <v-btn
+          flat
+          icon
+          @click="reset()"
+        >
+          <v-icon>refresh</v-icon>
         </v-btn>
     </div>
 </template>
@@ -26,6 +40,12 @@ Vue.filter('twoDigits', (value) => {
 })
 
 export default {
+    mounted () {
+      this.$root.$on('finalizedSpeech', () => {
+        console.log('dude')
+        this.stop()
+      })
+    },
     data() {
         return {
             seconds:0,
@@ -39,7 +59,7 @@ export default {
             if(!this.running) {
                 this.add()
                 this.running = true
-            } 
+            }
         },
         add() {
             this.seconds++;
