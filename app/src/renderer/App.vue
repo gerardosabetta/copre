@@ -97,6 +97,16 @@ export default {
   user-select: none;
 }
 
+@media print {
+  body {
+    overflow: visible;
+    height: unset;
+  }
+  header {
+    display: none
+  }
+}
+
 html,
 body {
   height: 100%;
