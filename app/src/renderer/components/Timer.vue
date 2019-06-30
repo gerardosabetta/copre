@@ -42,8 +42,7 @@ Vue.filter('twoDigits', (value) => {
 export default {
     mounted () {
       this.$root.$on('finalizedSpeech', () => {
-        console.log('dude')
-        this.stop()
+        this.reset()
       })
     },
     data() {
