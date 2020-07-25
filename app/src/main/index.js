@@ -14,12 +14,17 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
-    icon:'../../icons/icon.ico',
-    frame: false
+    frame: false,
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
+
   mainWindow.setMenu(null)  //No menues
   mainWindow.loadURL(winURL)
-
+  
+  mainWindow.once('ready-to-show',() => mainWindow.show())
   mainWindow.on('closed', () => {
     mainWindow = null
   })
