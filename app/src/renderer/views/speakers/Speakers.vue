@@ -1,7 +1,7 @@
 <template>
     <v-layout row wrap>
         <v-flex xs8 class="full-height">
-            <v-dialog 
+            <v-dialog
             v-model="addSpeakerDialog"
             width="50%"
             absolute
@@ -15,14 +15,14 @@
                             Añadir delegaciones a la lista de oradores
                         </div>
                     </v-card-title>
-                    <v-card-text style="height:300px">
+                    <v-card-text>
                         <add-speaker></add-speaker>
                     </v-card-text>
                     <v-card-actions class="white">
                         <v-spacer></v-spacer>
-                        <v-btn 
-                        class="blue--text darken-1" 
-                        flat 
+                        <v-btn
+                        class="blue--text darken-1"
+                        flat
                         @click.native="addSpeakerDialog = false">Cancelar</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -30,26 +30,26 @@
             <v-dialog
             v-model="removeSpeakerDialog"
             absolute>
-                <v-btn error slot="activator">
+                <v-btn error slot="activator" v-if="speakingCountry">
                     <v-icon>remove</v-icon>
                 </v-btn>
                 <v-card>
                     <v-card-title primary-title>
-                        ¿Estas seguro de eliminar a {{speakingCountry.name}}? 
+                        ¿Estas seguro de eliminar a {{speakingCountry.name}}?
                     </v-card-title>
                     <v-card-text>
                         La delegación será removida de la lista de oradores pero las preguntas seguiran asociadas a la delegación!
                     </v-card-text>
                     <v-card-actions class="white">
                         <v-spacer></v-spacer>
-                        <v-btn 
-                        class="blue--text darken-1" 
+                        <v-btn
+                        class="blue--text darken-1"
                         flat
                         @click.native="removeActiveSpeaker(speakingCountry); removeSpeakerDialog = false"
                         >Si, eliminar</v-btn>
-                        <v-btn 
-                        class="blue--text darken-1" 
-                        flat 
+                        <v-btn
+                        class="blue--text darken-1"
+                        flat
                         @click.native="removeSpeakerDialog = false"
                         >Cancelar</v-btn>
                     </v-card-actions>
@@ -75,10 +75,9 @@
                     </v-list>
                     </v-card-text>
                 </v-card>
-            </div>                
+            </div>
         </v-flex>
         <v-flex xs4 class="full-height">
-            <Timer />
             <h4 v-text="speakingCountry.name"></h4>
             <h6 v-if="getCurrentSpeakerQuestions.length > 0">{{speakingCountry.name}} fue interpelado por:</h6>
                 <v-list class="list-container">
@@ -95,15 +94,15 @@
                         </v-list-tile-action>
                     </v-list-tile>
                 </v-list>
-            <v-dialog 
+            <v-dialog
             v-model="addQuestionDialog"
             width="50%"
             absolute
             scrollable
             v-if="speakingCountry.name">
-                <v-btn 
-                block 
-                success 
+                <v-btn
+                block
+                success
                 slot="activator">
                     Añadir interpelación
                 </v-btn>
@@ -122,9 +121,10 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
-            <v-btn 
+            <v-btn
                 error
                 @click="finalizedSpeech(speakingCountry)"
+                v-if="speakingCountry.name"
                 >
                     Discurso finalizado
                 </v-btn>
@@ -133,7 +133,6 @@
 </template>
 
 <script>
-import Timer from './Timer'
 import draggable from 'vuedraggable'
 import AddSpeaker from './AddSpeaker'
 import AddQuestion from './AddQuestion'
@@ -208,10 +207,10 @@ export default {
         finalizedSpeech(speakingCountry) {
             this.$store.dispatch('finalizedSpeech')
             this.$store.dispatch('modifySpeech', {country:speakingCountry, speech: true})
+            this.$root.$emit('finalizedSpeech')
         }
     },
     components: {
-        Timer,
         draggable,
         AddSpeaker,
         AddQuestion

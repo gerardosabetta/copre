@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ActivateCountries from './ActivateCountries'
+import ActivateCountries from '../components/ActivateCountries'
 export default {
   components: {
   ActivateCountries
@@ -23,7 +23,6 @@ export default {
       location.reload()
     }
   }
-  
 }
 </script>
 

@@ -12,6 +12,9 @@
           </template>
         </v-data-table>
       </div>
+      <v-btn class="print-button" @click="print">
+        <v-icon>print</v-icon>
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -39,14 +42,30 @@
           { text: 'Discurso', value: 'speech' },
         ]
       }
+    },
+    methods: {
+      print () {
+        window.print()
+      }
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@media print {
+  .print-button {
+    display: none;
+  }
+}
 .resumen-container {
   height: 80vh;
   overflow-y: scroll;
+  @media print {
+    position: relative;
+    display: block;
+    height: unset;
+    overflow: visible;
+  }
 }
 
 </style>

@@ -10,10 +10,10 @@
     "build:mas": "cross-env PLATFORM_TARGET=mas node tasks/release.js",
     "build:win32": "cross-env PLATFORM_TARGET=win32 node tasks/release.js",
     "dev": "node tasks/runner.js",
-    "pack": "npm run pack:main && npm run pack:renderer",
+    "pack": "yarn run pack:main && yarn run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack -p --progress --colors --config webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack -p --progress --colors --config webpack.renderer.config.js",
-    "postinstall": "cd app && npm install"
+    "postinstall": "cd app && yarn install"
   },
   "author": "Gerardo Sabetta <sabettagerardo@gmail.com>",
   "license": "MIT",

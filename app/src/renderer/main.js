@@ -11,6 +11,8 @@ import routes from './routes'
 import store from './vuex/store'
 import wysiwyg from "vue-wysiwyg"
 import Vue2Filters from 'vue2-filters'
+import VueShortKey from 'vue-shortkey'
+Vue.use(VueShortKey)
 Vue.use(Vuetify)
 Vue.use(Electron)
 Vue.use(Resource)

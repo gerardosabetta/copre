@@ -28,6 +28,7 @@
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title>Copre Alpha OAJNU Rosario</v-toolbar-title>
         <v-spacer></v-spacer>
+        <Timer />
         <MocionButton />
       </v-toolbar>
     </header>
@@ -35,20 +36,20 @@
       <v-container grid-list-md text-xs-center>
         <v-layout row wrap>
           <v-flex xs12>
-            <keep-alive>
-              <router-view></router-view>
-            </keep-alive>
+            <router-view></router-view>
           </v-flex>
         </v-layout>
       </v-container>
     </main>
+    <span hidden v-shortkey="['ctrl', 'alt', '0']" @shortkey="navigateToAdmin()"></span>
   </v-app>
 </template>
 
 <script>
 import store from 'renderer/vuex/store'
-import Speakers from './components/speakers/Speakers'
+import Speakers from './views/speakers/Speakers'
 import MocionButton from './components/MocionButton'
+import Timer from './components/Timer'
 const { remote } = require('electron')
 
 export default {
@@ -60,8 +61,7 @@ export default {
         { title: 'Lista de oradores', to: 'oradores' },
         { title: 'Votacion', to: 'vote' },
         { title: 'Notas', to: 'notes' },
-        { title: 'Resumen', to: 'resumen' },
-        { title: 'Administrar', to: 'admin' }
+        { title: 'Resumen', to: 'resumen' }
       ]
     }
   },
@@ -77,11 +77,15 @@ export default {
     maximizeWindow () {
       let window = remote.getCurrentWindow()
       window.isMaximized() ? window.unmaximize() : window.maximize();
+    },
+    navigateToAdmin () {
+      this.$router.push('admin')
     }
   },
   store,
   components: {
-    MocionButton
+    MocionButton,
+    Timer
   }
 
 }
@@ -94,6 +98,16 @@ export default {
   margin: 0;
   padding: 0;
   user-select: none;
+}
+
+@media print {
+  body {
+    overflow: visible !important;
+    height: unset !important;
+  }
+  header {
+    display: none
+  }
 }
 
 html,
@@ -118,7 +132,7 @@ body {
 .system-bar {
   -webkit-app-region: drag;
   .option {
-    -webkit-app-region: no-drag;    
+    -webkit-app-region: no-drag;
     cursor: pointer;
     color: #fff !important;
     font-weight: 400;
