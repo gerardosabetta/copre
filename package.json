@@ -50,7 +50,7 @@
     "webpack-dev-server": "^2.11.5"
   },
   "dependencies": {
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "vuedraggable": "^2.24.0"
   }
 }
